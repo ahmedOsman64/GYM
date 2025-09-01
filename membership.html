@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AO Gym Member Portal - Login to access your membership dashboard, track progress, and manage your fitness journey.">
+    <meta name="keywords" content="gym membership, login, fitness dashboard, AO Gym member portal">
+    <meta name="author" content="Ahmed Osman">
+    
+    <title>Member Portal - AO Gym | Login & Dashboard</title>
+    
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-extended.css">
+    <link rel="stylesheet" href="membership-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i data-lucide="dumbbell"></i>
+                <a href="index.html" style="color: inherit; text-decoration: none;">
+                    <span>AO Gym</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#programs" class="nav-link">Programs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#trainers" class="nav-link">Trainers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="membership.html" class="nav-link active">Membership</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i data-lucide="sun"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="membership-main">
+        <!-- Login/Signup Section -->
+        <section class="auth-section" id="authSection">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-header">
+                        <h1>Welcome to AO Gym</h1>
+                        <p>Access your membership portal</p>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <div class="auth-form-container" id="loginContainer">
+                        <div class="auth-tabs">
+                            <button class="auth-tab active" id="loginTab">Login</button>
+                            <button class="auth-tab" id="signupTab">Sign Up</button>
+                        </div>
+                        
+                        <form class="auth-form" id="loginForm">
+                            <h2>Member Login</h2>
+                            
+                            <div class="form-group">
+                                <label for="loginEmail">Email Address</label>
+                                <div class="input-group">
+                                    <i data-lucide="mail"></i>
+                                    <input type="email" id="loginEmail" name="email" required placeholder="Enter your email">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <div class="input-group">
+                                    <i data-lucide="lock"></i>
+                                    <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                                    <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                                        <i data-lucide="eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="rememberMe">
+                                    <span class="checkmark"></span>
+                                    Remember me
+                                </label>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Login</span>
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                        </form>
+                        
+                        <!-- Signup Form -->
+                        <form class="auth-form hidden" id="signupForm">
+                            <h2>Create Account</h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="signupFirstName">First Name</label>
+                                    <input type="text" id="signupFirstName" name="firstName" required placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="signupLastName">Last Name</label>
+                                    <input type="text" id="signupLastName" name="lastName" required placeholder="Last name">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signupEmail">Email Address</label>
+                                <div class="input-group">
+                                    <i data-lucide="mail"></i>
+                                    <input type="email" id="signupEmail" name="email" required placeholder="Enter your email">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signupPhone">Phone Number</label>
+                                <div class="input-group">
+                                    <i data-lucide="phone"></i>
+                                    <input type="tel" id="signupPhone" name="phone" required placeholder="Enter your phone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signupPassword">Password</label>
+                                <div class="input-group">
+                                    <i data-lucide="lock"></i>
+                                    <input type="password" id="signupPassword" name="password" required placeholder="Create a password">
+                                    <button type="button" class="password-toggle" onclick="togglePassword('signupPassword')">
+                                        <i data-lucide="eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength" id="passwordStrength"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <div class="input-group">
+                                    <i data-lucide="lock"></i>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="agreeTerms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Create Account</span>
+                                <i data-lucide="user-plus"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Member Dashboard (Hidden by default) -->
+        <section class="dashboard-section hidden" id="dashboardSection">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div class="welcome-message">
+                        <h1>Welcome back, <span id="memberName">Member</span>!</h1>
+                        <p>Track your progress and manage your membership</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="logout()">
+                        <i data-lucide="log-out"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <!-- Profile Card -->
+                    <div class="dashboard-card profile-card">
+                        <div class="card-header">
+                            <h3>Profile</h3>
+                            <button class="btn btn-sm btn-outline" onclick="editProfile()">
+                                <i data-lucide="edit"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-avatar">
+                                <span id="profileInitials">AO</span>
+                            </div>
+                            <div class="profile-details">
+                                <h4 id="profileName">Ahmed Osman</h4>
+                                <p id="profileEmail">ahmed@example.com</p>
+                                <p id="profilePhone">+252 61 234 5678</p>
+                                <div class="membership-badge">
+                                    <span id="membershipPlan">Standard Member</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Membership Status -->
+                    <div class="dashboard-card membership-card">
+                        <div class="card-header">
+                            <h3>Membership Status</h3>
+                            <span class="status-badge active">Active</span>
+                        </div>
+                        <div class="membership-info">
+                            <div class="info-item">
+                                <span class="label">Plan:</span>
+                                <span class="value">Standard - $49/month</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Next Payment:</span>
+                                <span class="value">September 25, 2025</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Member Since:</span>
+                                <span class="value">January 2024</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">
+                                <i data-lucide="credit-card"></i>
+                                Manage Plan
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Stats -->
+                    <div class="dashboard-card stats-card">
+                        <div class="card-header">
+                            <h3>This Month</h3>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i data-lucide="calendar"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">Visits</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i data-lucide="clock"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">18h</span>
+                                    <span class="stat-label">Workout Time</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i data-lucide="trending-up"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">5</span>
+                                    <span class="stat-label">Programs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="dashboard-card activity-card">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-lucide="dumbbell"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <span class="activity-title">Strength Training</span>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-lucide="heart"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <span class="activity-title">HIIT Cardio Session</span>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-lucide="user"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <span class="activity-title">Personal Training</span>
+                                    <span class="activity-time">3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card actions-card">
+                        <div class="card-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="actions-grid">
+                            <button class="action-btn">
+                                <i data-lucide="calendar-plus"></i>
+                                <span>Book Session</span>
+                            </button>
+                            <button class="action-btn">
+                                <i data-lucide="users"></i>
+                                <span>Find Trainer</span>
+                            </button>
+                            <button class="action-btn">
+                                <i data-lucide="target"></i>
+                                <span>Set Goals</span>
+                            </button>
+                            <button class="action-btn">
+                                <i data-lucide="message-circle"></i>
+                                <span>Support</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="membership-script.js"></script>
+</body>
+</html>
